@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+
+# Build output (from tsconfig outDir)
+dist/
+build/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Environment settings (Security)
+.env
+
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# IDE settings (optional but recommended)
+.vscode/
+.idea/
