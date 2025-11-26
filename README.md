@@ -171,42 +171,27 @@ npm run test:watch
 
 ## Postman Testing Guide
 
-The project includes a Postman collection for integration testing. Follow these steps to import and configure it.
+The project includes a Postman collection and environment for integration testing. Follow these steps to import and configure them.
 
-### Step 1: Import the Collection
+### Step 1: Import the Collection and Environment
 
 1. Open **Postman** application
 2. Click the **Import** button in the top-left corner
-3. Select the `StudentCanteenReservation.postman_collection.json` file from the project root
+3. Select both files from the project root:
+   - `5DanaUOblacima2025ChallengePublic.postman_collection.json`
+   - `Levi9Cloud.postman_environment.json`
 4. The collection will appear in your Collections sidebar
+5. The environment will appear in your Environments
 
-### Step 2: Set Up Environment Variables
-
-You need to configure the `baseUrl` variable for the API to work:
-
-#### Option A: Create a New Environment
+### Step 2: Configure the Environment
 
 1. Click the **Environments** tab in the left sidebar
-2. Click **Create Environment** (or the "+" button)
-3. Name it `Student Canteen Local`
-4. Add a variable:
-   - **Variable**: `baseUrl`
-   - **Type**: `default`
+2. Select **Levi9Cloud**
+3. Set the `baseURL` variable:
    - **Initial Value**: `http://127.0.0.1:8080`
    - **Current Value**: `http://127.0.0.1:8080`
-5. Click **Save**
-6. Select this environment from the dropdown in the top-right corner of Postman
-
-#### Option B: Use Collection Variables
-
-1. Right-click on the imported collection
-2. Select **Edit**
-3. Go to the **Variables** tab
-4. Add:
-   - **Variable**: `baseUrl`
-   - **Initial Value**: `http://127.0.0.1:8080`
-   - **Current Value**: `http://127.0.0.1:8080`
-5. Click **Save**
+4. Click **Save**
+5. Select **Levi9Cloud** from the environment dropdown in the top-right corner of Postman
 
 ### Step 3: Start the Server
 
@@ -227,8 +212,8 @@ Always reset the database before running the full collection:
 3. You should receive a `204 No Content` response
 
 Alternatively, use the terminal:
-```bash
-curl -X POST http://127.0.0.1:8080/debug/clear
+```powershell
+Invoke-RestMethod -Uri "http://127.0.0.1:8080/debug/clear" -Method POST
 ```
 
 ### Step 5: Run the Collection
@@ -277,11 +262,7 @@ http://127.0.0.1:8080
 
 To reset the in-memory database and clear all students, canteens, and reservations:
 
-```bash
-# Using curl
-curl -X POST http://127.0.0.1:8080/debug/clear
-
-# Using PowerShell
+```powershell
 Invoke-RestMethod -Uri "http://127.0.0.1:8080/debug/clear" -Method POST
 ```
 
