@@ -1,6 +1,6 @@
 # 🍽️ Student Canteen Reservation System
 
-A REST API for managing student canteen reservations, built for the **"5 dana u oblacima 2025"** challenge by Levi9.
+A REST API for managing student canteen reservations, built for the [**"5 dana u oblacima 2025" challenge**](./5-dana-u-oblacima-2025-challenge-faza.pdf) by Levi9.
 
 ## 📋 Table of Contents
 
@@ -299,10 +299,11 @@ Invoke-RestMethod -Uri "http://127.0.0.1:8080/debug/clear" -Method POST
 | GET | `/students/:id` | Get student by ID |
 
 #### Create Student
-```json
+```
 POST /students
 Content-Type: application/json
-
+```
+```json
 {
   "name": "Marko Markovic",
   "email": "marko@example.com",
@@ -340,11 +341,12 @@ Content-Type: application/json
 | GET | `/canteens/:id/status` | Get canteen availability | - |
 
 #### Create Canteen (Admin Only)
-```json
+```
 POST /canteens
 Content-Type: application/json
 studentId: <admin-uuid>
-
+```
+```json
 {
   "name": "Velika Menza",
   "location": "Novi Sad",
@@ -394,10 +396,11 @@ GET /canteens/:id/status?startDate=2025-12-01&endDate=2025-12-01&startTime=11:00
 | DELETE | `/reservations/:id` | Cancel reservation |
 
 #### Create Reservation
-```json
+```
 POST /reservations
 Content-Type: application/json
-
+```
+```json
 {
   "studentId": "student-uuid",
   "canteenId": "canteen-uuid",
@@ -424,8 +427,12 @@ DELETE /reservations/:id
 ```json
 {
   "id": "uuid-string",
-  "status": "Cancelled",
-  ...
+  "studentId": "student-uuid",
+  "canteenId": "canteen-uuid",
+  "date": "2025-12-01",
+  "time": "12:00",
+  "duration": 30,
+  "status": "Cancelled"
 }
 ```
 
